@@ -1,0 +1,46 @@
+<!doctype html>
+<!-- 2018. 10. 29 최초 작성 Copyright@seyeon-kim -->
+<head>
+	<title>ESC TEST</title>
+	<!-- v1.1.1 charset 추가, 한국어 호환 지원/근데 이거 없어도 호환 되는 것 같기도 -->
+	<meta charset="utf-8">
+</head>
+<body>
+	<!-- 주석은 이렇게 달아야 한다 -->
+	<!-- href로 한 html 내의 스크롤 위치 변경도 가능하다. 
+		링크 걸고 싶은, 부분에는 href="#name"을 넣고, 
+		링크될 부분에는 <a name="name"></a>를 넣어주면 된다.-->
+	<!-- v1.1.1 target="__blank" 추가, 새 창에서 열기를 실행 -->
+
+	<div class="center-div">
+		<a href="sign-in.html" >
+			<img src="Images/logo.png" width="40%" class="center-img">
+		</a>
+	</div>
+
+	<!-- 주석은 이렇게 달아야 한다 
+	<h1>This is a Heading</h1>
+	<p>This is a <strong>paragraph.</strong> </p>
+	<p>I testing put on a img in here.</p>
+	<p>한국어 호환 가능한가요?</p> -->
+
+</body>
+
+<!-- v1.1.1 전체 style 추가, 현재 h1과 img에 대해서만 적용 -->
+<!-- h1 폰트 색상 blue, text 가운데 정렬 -->
+<!-- css class centerImg 생성, 가운데 정렬할 이미지 -->
+<style>
+  .center-img {
+  	display:block; 
+  	margin-left: auto; 
+  	margin-right: auto;
+  }
+
+  .center-div {
+    position:absolute;
+    max-width:50%; max-height:50%;
+    width:auto; height:auto;
+    margin:auto;
+    top:0; bottom:0; left:0; right:0;
+  }
+</style>
