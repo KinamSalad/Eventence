@@ -3,9 +3,12 @@ from django.utils import timezone
 
 
 class Post(models.Model):
-    author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
-    title = models.CharField(max_length=200)
-    text = models.TextField()
+    #author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    post_id =  models.IntegerField(blank=True, null=True)
+    title = models.CharField(max_length=100)
+    time = models.CharField(max_length=100, default = "")
+    place = models.CharField(max_length=100, default = "")
+
     created_date = models.DateTimeField(
             default=timezone.now)
     published_date = models.DateTimeField(
@@ -17,4 +20,19 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Keyword_info(models.Model):
+	post_id = models.IntegerField(blank=True, null=True)
+	keyword = models.CharField(max_length = 200)
+
+class Keyword_rewards(models.Model):
+	post_id = models.IntegerField(blank=True, null=True)
+	keyword = models.CharField(max_length = 200)
+
+#class Images(models.Model):
+
+
+
+
 # Create your models here.
