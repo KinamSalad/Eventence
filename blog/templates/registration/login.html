@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+	<div>Hi</div> 
+	<form method="post" action="{% url 'login' %}">
+  	{% csrf_token %}
+  	<input type="hidden" name="next" value="" />
+  	{{ form.as_p }}
+  	<button class="waves-effect waves-light btn" type="submit">로그인</button>
+  	<a class="waves-effect waves-light btn" href="{% url 'sign_up' %}">You have no accounts?</a>
+  	</form>
+{% endblock %}

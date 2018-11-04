@@ -1,7 +1,13 @@
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.utils import timezone
 
+class CustomUser(AbstractUser):
+    # add additional fields in here
 
+    def __str__(self):
+        return self.email
+        
 class Post(models.Model):
     #author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     post_id =  models.IntegerField(blank=True, null=True)

@@ -4,6 +4,13 @@ from .models import Post
 from django.shortcuts import render, get_object_or_404
 from .forms import PostForm
 from django.shortcuts import redirect
+from .forms import CustomUserCreationForm
+from django.views import generic
+from django.urls import reverse_lazy
+
+def hello(request):
+	return render(request, 'blog/hello.html')
+
 
 def post_list(request):
 	posts = Post.objects.filter().order_by('time')
@@ -39,6 +46,8 @@ def post_edit(request, pk):
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
 
-def sign_up(request):
-	return render(request, 'blog/sign_up.html', {})
-# Create your views here.
+class sign_up(generic.CreateView):
+    form_class = CustomUserCreationForm
+    success_url = reverse_lazy('login')
+    template_name = 'blog/sign_up.html'
+
