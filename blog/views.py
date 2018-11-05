@@ -51,3 +51,25 @@ class sign_up(generic.CreateView):
     success_url = reverse_lazy('login')
     template_name = 'blog/sign_up.html'
 
+
+#def sign_up(request):
+#	if request.method == 'POST':
+#		form = CustomUserCreationForm(instance = post)
+#		print(form)
+#		if form.is_valid():
+#			post = form.save(commit = False)
+#			post.save()
+#	else:
+#		form = CustomUserCreationForm()
+#	return render(request, 'blog/sign_up.html', {'form': form})
+
+
+
+
+
+
+
+
+
+
+

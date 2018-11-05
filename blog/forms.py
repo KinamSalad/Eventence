@@ -13,11 +13,14 @@ class PostForm(forms.ModelForm):
 class CustomUserCreationForm(UserCreationForm):
 
     class Meta(UserCreationForm):
-        model = CustomUser
-        fields = ('username', 'email')
+    	model = CustomUser
+    	fields = ('username', 'email', 'grade', 'major')
+
+
+
 
 class CustomUserChangeForm(UserChangeForm):
 
     class Meta:
-        model = CustomUser
-        fields = ('username', 'email')
+    	model = CustomUser
+    	fields = ('username', 'email', 'grade', 'major')

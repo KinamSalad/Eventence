@@ -3,8 +3,145 @@
 {% block content %}
 <h2>Sign up</h2>
 <form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Sign up</button>
+	{% csrf_token %}
+
+<p><label for="id_username">UserName:</label>
+	<input id="id_username" type="text" name="username" maxlength="100" /></p>
+
+<p><label for="id_email">Email:</label>
+    <input id="id_email" type="text" name="email" /></p>
+
+<p><label for="id_password1">Password:</label>
+    <input id="id_password1" type="password" name="password1" /></p>
+
+<p><label for="id_password2">Password Confirmation:</label>
+    <input id="id_password2" type="password" name="password2" /></p> 
+
+<p><label for="id_grade">Grade:</label></p>
+    <p><label>
+        <input name="grade" type="radio" value="Ju" />
+        <span>Junior(1~2 Grade)</span>
+    </label></p>
+    
+    <p><label>
+        <input name="grade" type="radio" value ="Se" />
+        <span>Senior(3~4 Grade)</span>
+    </label></p>
+    
+    <p><label>
+        <input name="grade" type="radio" value ="Ms" />
+        <span>MS</span>
+    </label></p>
+    
+    <p><label>
+        <input name="grade" type="radio" value ="Ph" />
+        <span>PhD</span>
+    </label></p>
+
+<div class="divider"></div>
+<p><label for="id_major">Major:</label></p>
+	<label>
+    	<input name="major" type="radio" value = "CE"/>
+    	<span>건환</span>
+    </label>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <label>
+    	<input name="major" type="radio" value = "MSB"/>
+    	<span>기경</span>
+    </label>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <label>
+    	<input name="major" type="radio" value = "ME"/>
+    	<span>기계</span>
+    </label>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <label>
+    	<input name="major" type="radio" value = "PH"/>
+    	<span>물리</span>
+    </label>
+    <br/>
+
+    <label>
+    	<input name="major" type="radio" value = "BIS"/>
+    	<span>바공</span>
+    </label>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <label>
+    	<input name="major" type="radio" value = "IE"/>
+    	<span>산공</span>
+    </label>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <label>
+    	<input name="major" type="radio" value = "ID"/>
+    	<span>산디</span>
+    </label>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <label>
+    	<input name="major" type="radio" value = "BS"/>
+    	<span>생명</span>
+    </label>
+    <br/>
+
+
+    <label>
+    	<input name="major" type="radio" value = "MAS"/>
+    	<span>수리</span>
+    </label>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <label>
+    	<input name="major" type="radio" value = "EE"/>
+    	<span>전자</span>
+    </label>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <label>
+    	<input name="major" type="radio" value = "CS"/>
+    	<span>전산</span>
+    </label>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <label>
+    	<input name="major" type="radio" value = "AE"/>
+    	<span>항공</span>
+    </label>
+    <br/>
+
+
+    <label>
+    	<input name="major" type="radio" value = "CH"/>
+    	<span>화학</span>
+    </label>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <label>
+    	<input name="major" type="radio" value = "CBE"/>
+    	<span>생화</span>
+    </label>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <label>
+    	<input name="major" type="radio" value = "MS"/>
+    	<span>신소</span>
+    </label>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <label>
+    	<input name="major" type="radio" value = "ETC"/>
+    	<span>기타</span>
+    </label>
+    <br/>
+    
+<div class="divider"></div>
+
+
+<!--<p><label for="id_major">Major:</label>
+	<select id="id_major" name="major" >
+    	<option value = ""> Select </option>
+    	<option value = "Junior"> Junior(1~2 Grade) </option>
+    	<option value = "Seinor"> Senior(3~4 Grade) </option>
+    	<option value = "Ms"> MS </option>
+    	<option value = "PhD"> PhD </option>
+    </select>    
+</p>
+{{form.as_p}}-->
+<p>
+<button class="waves-effect waves-light btn" type="submit">Sign up</button>
+</p>
 </form>
+
 {% endblock %}

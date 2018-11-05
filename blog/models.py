@@ -4,13 +4,15 @@ from django.utils import timezone
 
 class CustomUser(AbstractUser):
     # add additional fields in here
-
+    grade = models.CharField(max_length = 10, default = "")
+    major = models.CharField(max_length = 5, default = "")
+    #major = models.ChoiceField(widget = forms.Select(), choices = grade_form, initial = '3')
     def __str__(self):
         return self.email
         
 class Post(models.Model):
     #author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
-    post_id =  models.IntegerField(blank=True, null=True)
+    post_id =  models.IntegerField(blank=True, null=True)# can remove
     title = models.CharField(max_length=100)
     time = models.CharField(max_length=100, default = "")
     place = models.CharField(max_length=100, default = "")

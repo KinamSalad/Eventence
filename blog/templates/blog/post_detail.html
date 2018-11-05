@@ -9,7 +9,7 @@
         {% endif %}
         <a class="waves-effect waves-light btn" href="{% url 'post_edit' pk=post.pk %}">EDIT</a>
         <h1>{{ post.title }}</h1>
-        <p>{{ post.time }}</p>
-        <p>{{ post.place }}</p>
+        <p> {{ post.time }} </p>
+        <p> {{ post.place }} </p>
     </div>
 {% endblock %}
