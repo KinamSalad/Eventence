@@ -22,8 +22,8 @@
             <button class="like waves-effect waves-light btn" name="{{ post.id }}" value="Like">Like!</button>
 
                 <p id="count-{{ post.id }}">{{ post.like_count }}개</p>
-                <div id="grade-{{ post.pk }}" >{{post.grade1}}</div>
-                <div id="major-{{ post.pk }}">{{post.major1}}</div>
+                <div class = 'chip' id="grade-{{ post.pk }}" >{{post.grade1}}</div>
+                <div class = 'chip' id="major-{{ post.pk }}">{{post.major1}}</div>
                 <!--<p id="like-user-{{ post.id }}">
                     {% for like_user in post.like_user_set.all %}
                         {{ like_user.username }}

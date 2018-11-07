@@ -26,8 +26,16 @@ def post_list(request):
 	
 	for post in posts:
 
-		post.grade1 = GradeInfo.objects.filter(post=post).order_by('-value')[0].key
-		post.major1 = MajorInfo.objects.filter(post=post).order_by('-value')[0].key
+		if GradeInfo.objects.filter(post=post).order_by('-value')[0].value == 0:
+			post.grade1 = "None"
+		else:
+			post.grade1 = GradeInfo.objects.filter(post=post).order_by('-value')[0].key
+
+		if MajorInfo.objects.filter(post=post).order_by('-value')[0].value == 0:
+			post.major1 = "None"
+		else:
+			post.major1 = MajorInfo.objects.filter(post=post).order_by('-value')[0].key
+		
 
 		temp = Keyword.objects.filter(post=post)
 		length = len(temp)
@@ -45,7 +53,8 @@ def post_list(request):
 				post.keywordrand = temp[index].keyword2
 				post.keyword_prefix = post.keyword2_prefix
 				post.keyword_suffix = post.keyword2_suffix
-			post.save()
+
+		post.save()
 
 	return render(request, 'blog/post_list.html', {'posts': posts, 'user': user })
 
@@ -123,7 +132,7 @@ def post_new(request):
 def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
-        form = PostForm(instance=post)
+        form = PostForm(request.POST,instance=post)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
@@ -145,23 +154,37 @@ def post_like(request):
     pk = request.POST.get('pk', None) # ajax 통신을 통해서 template에서 POST방식으로 전달
     post = get_object_or_404(Post, pk=pk)
     post_like, post_like_created = post.like_set.get_or_create(user=request.user)
-    
-    gradeinfo = GradeInfo.objects.get(post=post, key=request.user.grade)
-    gradeinfo.value = gradeinfo.value + 1
-    gradeinfo.save()
-    majorinfo = MajorInfo.objects.get(post=post, key=request.user.major)
-    majorinfo.value = majorinfo.value + 1
-    majorinfo.save()
-
-    grade1 = GradeInfo.objects.filter(post=post).order_by('-value')[0].key
-    major1 = MajorInfo.objects.filter(post=post).order_by('-value')[0].key
-
+   
 
     if not post_like_created:
         post_like.delete()
         message = "like canceled"
+
+        gradeinfo = GradeInfo.objects.get(post=post, key=request.user.grade)
+        gradeinfo.value = gradeinfo.value - 1
+        gradeinfo.save()
+        majorinfo = MajorInfo.objects.get(post=post, key=request.user.major)
+        majorinfo.value = majorinfo.value - 1
+        majorinfo.save()
     else:
-        message = "like"
+    	message = "like"
+    	gradeinfo = GradeInfo.objects.get(post=post, key=request.user.grade)
+    	gradeinfo.value = gradeinfo.value + 1
+    	gradeinfo.save()
+    	majorinfo = MajorInfo.objects.get(post=post, key=request.user.major)
+    	majorinfo.value = majorinfo.value + 1
+    	majorinfo.save()
+
+    if GradeInfo.objects.filter(post=post).order_by('-value')[0].value == 0:
+    	grade1 = "None"
+    else:
+    	grade1 = GradeInfo.objects.filter(post=post).order_by('-value')[0].key
+
+    if MajorInfo.objects.filter(post=post).order_by('-value')[0].value == 0:
+    	major1 = "None"
+    else:
+    	major1 = MajorInfo.objects.filter(post=post).order_by('-value')[0].key
+
 
     context = { 'like_count': post.like_count(),
     			'message': message,
