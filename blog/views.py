@@ -205,18 +205,18 @@ def keyword_reset(request):
 		index = randint(0, length-1)
 		indexKeyword = randint(0, 1)
 		if indexKeyword == 0:
-			post.keywordrand = temp[index].keyword1
-			post.keyword_prefix = post.keyword1_prefix
-			post.keyword_suffix = post.keyword1_suffix
+			keywordrand = temp[index].keyword1
+			keyword_prefix = post.keyword1_prefix
+			keyword_suffix = post.keyword1_suffix
 		
 		else:
-			post.keywordrand = temp[index].keyword2
-			post.keyword_prefix = post.keyword2_prefix
-			post.keyword_suffix = post.keyword2_suffix
+			keywordrand = temp[index].keyword2
+			keyword_prefix = post.keyword2_prefix
+			keyword_suffix = post.keyword2_suffix
 	
-	context = { 'keyword': post.keywordrand,
-				'prefix': post.keyword_prefix,
-				'suffix': post.keyword_suffix }
+	context = { 'keyword': keywordrand,
+				'prefix': keyword_prefix,
+				'suffix': keyword_suffix }
 	
 	return HttpResponse(json.dumps(context))
 
