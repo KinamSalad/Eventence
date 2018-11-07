@@ -26,15 +26,18 @@ def post_list(request):
 	
 	for post in posts:
 
-		if GradeInfo.objects.filter(post=post).order_by('-value')[0].value == 0:
+		g_info = GradeInfo.objects.filter(post=post).order_by('-value')[0]
+		m_info = MajorInfo.objects.filter(post=post).order_by('-value')[0]
+
+		if g_info.value == 0:
 			post.grade1 = "None"
 		else:
-			post.grade1 = GradeInfo.objects.filter(post=post).order_by('-value')[0].key
+			post.grade1 = g_info.key
 
-		if MajorInfo.objects.filter(post=post).order_by('-value')[0].value == 0:
+		if m_info.value == 0:
 			post.major1 = "None"
 		else:
-			post.major1 = MajorInfo.objects.filter(post=post).order_by('-value')[0].key
+			post.major1 = m_info.key
 		
 
 		temp = Keyword.objects.filter(post=post)
@@ -175,15 +178,18 @@ def post_like(request):
     	majorinfo.value = majorinfo.value + 1
     	majorinfo.save()
 
-    if GradeInfo.objects.filter(post=post).order_by('-value')[0].value == 0:
+    g_info = GradeInfo.objects.filter(post=post).order_by('-value')[0]
+    m_info = MajorInfo.objects.filter(post=post).order_by('-value')[0]
+
+    if g_info.value == 0:
     	grade1 = "None"
     else:
-    	grade1 = GradeInfo.objects.filter(post=post).order_by('-value')[0].key
+    	grade1 = g_info.key
 
-    if MajorInfo.objects.filter(post=post).order_by('-value')[0].value == 0:
+    if m_info.value == 0:
     	major1 = "None"
     else:
-    	major1 = MajorInfo.objects.filter(post=post).order_by('-value')[0].key
+    	major1 = m_info.key
 
 
     context = { 'like_count': post.like_count(),
