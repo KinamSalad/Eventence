@@ -3,4 +3,5 @@
 {% block content %}
     <h1>CAT!</h1>
     <button class="waves-effect waves-light btn"><a href="{% url 'post_result' pk=post.pk %}">Go to result</a></button>
+    <button class="waves-effect waves-light btn"><a href="{% url 'post_list' %}">Back to list</a></button>
 {% endblock %}

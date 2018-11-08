@@ -14,66 +14,66 @@ import json
 from random import randint
 
 def hello(request):
-	return render(request, 'blog/hello.html')
+    return render(request, 'blog/hello.html')
 
 
 def post_list(request):
-	user = None
-	if request.user.is_authenticated():
-		user = request.user
-	
-	posts = Post.objects.filter().order_by('time')
-	
-	for post in posts:
+    user = None
+    if request.user.is_authenticated():
+        user = request.user
+    
+    posts = Post.objects.filter().order_by('time')
+    
+    for post in posts:
 
-		g_info = GradeInfo.objects.filter(post=post).order_by('-value')[0]
-		m_info = MajorInfo.objects.filter(post=post).order_by('-value')[0]
+        g_info = GradeInfo.objects.filter(post=post).order_by('-value')[0]
+        m_info = MajorInfo.objects.filter(post=post).order_by('-value')[0]
 
-		if g_info.value == 0:
-			post.grade1 = "None"
-		else:
-			post.grade1 = g_info.key
+        if g_info.value == 0:
+            post.grade1 = "None"
+        else:
+            post.grade1 = g_info.key
 
-		if m_info.value == 0:
-			post.major1 = "None"
-		else:
-			post.major1 = m_info.key
-		
+        if m_info.value == 0:
+            post.major1 = "None"
+        else:
+            post.major1 = m_info.key
+        
 
-		temp = Keyword.objects.filter(post=post)
-		length = len(temp)
+        temp = Keyword.objects.filter(post=post)
+        length = len(temp)
 
-		if length > 0:
-			index = randint(0, length-1)
-			indexKeyword = randint(0, 1)
+        if length > 0:
+            index = randint(0, length-1)
+            indexKeyword = randint(0, 1)
 
-			if indexKeyword == 0:
-				post.keywordrand = temp[index].keyword1
-				post.keyword_prefix = post.keyword1_prefix
-				post.keyword_suffix = post.keyword1_suffix
+            if indexKeyword == 0:
+                post.keywordrand = temp[index].keyword1
+                post.keyword_prefix = post.keyword1_prefix
+                post.keyword_suffix = post.keyword1_suffix
 
-			else:
-				post.keywordrand = temp[index].keyword2
-				post.keyword_prefix = post.keyword2_prefix
-				post.keyword_suffix = post.keyword2_suffix
+            else:
+                post.keywordrand = temp[index].keyword2
+                post.keyword_prefix = post.keyword2_prefix
+                post.keyword_suffix = post.keyword2_suffix
 
-		post.save()
+        post.save()
 
-	return render(request, 'blog/post_list.html', {'posts': posts, 'user': user })
+    return render(request, 'blog/post_list.html', {'posts': posts, 'user': user })
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
-    	form = KeywordForm(request.POST)
-    	if form.is_valid():
-    		keyword = form.save(commit=False)
-    		keyword.post = post
-    		keyword.save()
-    		return redirect('post_cat', pk=post.pk)
-    	#else: #ERROR
-    	#	return redirect('post_cat', pk=post.pk)
+        form = KeywordForm(request.POST)
+        if form.is_valid():
+            keyword = form.save(commit=False)
+            keyword.post = post
+            keyword.save()
+            return redirect('post_cat', pk=post.pk)
+        #else: #ERROR
+        #   return redirect('post_cat', pk=post.pk)
     else:
-    	form = KeywordForm()		
+        form = KeywordForm()        
     return render(request, 'blog/post_detail.html', {'post': post, 'form': form})
 
 def post_new(request):
@@ -170,70 +170,73 @@ def post_like(request):
         majorinfo.value = majorinfo.value - 1
         majorinfo.save()
     else:
-    	message = "like"
-    	gradeinfo = GradeInfo.objects.get(post=post, key=request.user.grade)
-    	gradeinfo.value = gradeinfo.value + 1
-    	gradeinfo.save()
-    	majorinfo = MajorInfo.objects.get(post=post, key=request.user.major)
-    	majorinfo.value = majorinfo.value + 1
-    	majorinfo.save()
+        message = "like"
+        gradeinfo = GradeInfo.objects.get(post=post, key=request.user.grade)
+        gradeinfo.value = gradeinfo.value + 1
+        gradeinfo.save()
+        majorinfo = MajorInfo.objects.get(post=post, key=request.user.major)
+        majorinfo.value = majorinfo.value + 1
+        majorinfo.save()
 
     g_info = GradeInfo.objects.filter(post=post).order_by('-value')[0]
     m_info = MajorInfo.objects.filter(post=post).order_by('-value')[0]
 
     if g_info.value == 0:
-    	grade1 = "None"
+        grade1 = "None"
     else:
-    	grade1 = g_info.key
+        grade1 = g_info.key
 
     if m_info.value == 0:
-    	major1 = "None"
+        major1 = "None"
     else:
-    	major1 = m_info.key
+        major1 = m_info.key
 
 
     context = { 'like_count': post.like_count(),
-    			'message': message,
-    			'nickname': request.user.username, 
-    			'grade1': grade1,
-    			'major1': major1 }
+                'message': message,
+                'nickname': request.user.username, 
+                'grade1': grade1,
+                'major1': major1 }
 
     return HttpResponse(json.dumps(context))
 
 def keyword_reset(request):
-	pk = request.POST.get('pk', None)
-	post = get_object_or_404(Post, pk=pk)
-	
-	temp = Keyword.objects.filter(post=post)
-	length = len(temp)
+    pk = request.POST.get('pk', None)
+    post = get_object_or_404(Post, pk=pk)
+    
+    temp = Keyword.objects.filter(post=post)
+    length = len(temp)
 
-	if length > 0:
-		index = randint(0, length-1)
-		indexKeyword = randint(0, 1)
-		if indexKeyword == 0:
-			keywordrand = temp[index].keyword1
-			keyword_prefix = post.keyword1_prefix
-			keyword_suffix = post.keyword1_suffix
-		
-		else:
-			keywordrand = temp[index].keyword2
-			keyword_prefix = post.keyword2_prefix
-			keyword_suffix = post.keyword2_suffix
-	
-	context = { 'keyword': keywordrand,
-				'prefix': keyword_prefix,
-				'suffix': keyword_suffix }
-	
-	return HttpResponse(json.dumps(context))
+    if length > 0:
+        index = randint(0, length-1)
+        indexKeyword = randint(0, 1)
+        if indexKeyword == 0:
+            keywordrand = temp[index].keyword1
+            keyword_prefix = post.keyword1_prefix
+            keyword_suffix = post.keyword1_suffix
+        
+        else:
+            keywordrand = temp[index].keyword2
+            keyword_prefix = post.keyword2_prefix
+            keyword_suffix = post.keyword2_suffix
+    else:
+        keywordrand = ""
+        keyword_prefix = ""
+        keyword_suffix = ""
+    
+    context = { 'keyword': keywordrand,
+                'prefix': keyword_prefix,
+                'suffix': keyword_suffix }
+    
+    return HttpResponse(json.dumps(context))
 
 def post_cat(request, pk):
-	post = get_object_or_404(Post, pk=pk)
-	return render(request, 'blog/post_cat.html', {'post': post})
+    post = get_object_or_404(Post, pk=pk)
+    return render(request, 'blog/post_cat.html', {'post': post})
 
 def post_result(request, pk):
-	post = get_object_or_404(Post, pk=pk)
-	return render(request, 'blog/post_result.html', {'post': post})
-
+    post = get_object_or_404(Post, pk=pk)
+    return render(request, 'blog/post_result.html', {'post': post})
 
 
 
