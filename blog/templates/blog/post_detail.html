@@ -8,6 +8,7 @@
             </div>
         {% endif %}
         <a class="waves-effect waves-light btn" href="{% url 'post_edit' pk=post.pk %}">EDIT</a>
+        <a class="waves-effect waves-light btn" href="{% url 'post_remove' pk=post.pk %}">DELETE</a>
         <h1>{{ post.title }}</h1>
         <p> {{ post.time }} </p>
         <p> {{ post.place }} </p>

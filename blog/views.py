@@ -146,6 +146,15 @@ def post_edit(request, pk):
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
 
+def post_remove(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    GradeInfo.objects.filter(post = post).delete()
+    MajorInfo.objects.filter(post= post).delete()
+    Keyword.objects.filter(post= post).delete()
+    post.delete()
+
+    return redirect('post_list')
+
 class sign_up(generic.CreateView):
     form_class = CustomUserCreationForm
     success_url = reverse_lazy('login')
