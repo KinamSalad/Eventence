@@ -56,6 +56,10 @@ def post_list(request):
                 post.keywordrand = temp[index].keyword2
                 post.keyword_prefix = post.keyword2_prefix
                 post.keyword_suffix = post.keyword2_suffix
+        else:
+            post.keywordrand = ""
+            post.keyword_prefix = "Waiting your sentence..."
+            post.keyword_suffix = ""
 
         post.save()
 
@@ -230,7 +234,7 @@ def keyword_reset(request):
             keyword_suffix = post.keyword2_suffix
     else:
         keywordrand = ""
-        keyword_prefix = ""
+        keyword_prefix = "Waiting your sentence..."
         keyword_suffix = ""
     
     context = { 'keyword': keywordrand,
