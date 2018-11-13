@@ -42,9 +42,9 @@
                 </div>
 
                 <div class="card-action">
-                  <a class="like btn-floating btn-small waves-effect waves-light tooltipped tooltipped" name="{{ post.pk }}" value="Like" data-position="bottom" data-delay="40" data-tooltip = " {{ post.like_count }} Students Like this Event! ">
+                  <button class="like btn-floating btn-small waves-effect waves-light tooltipped tooltipped" name="{{ post.pk }}" value="Like" data-position="bottom" data-delay="40" data-tooltip = " {{ post.like_count }} Students Like this Event! ">
                     <i class="material-icons">thumb_up</i>
-                  </a>
+                  </button>
                   <a class="btn-floating btn-small waves-effect waves-light tooltipped" data-position="bottom" data-delay="40" data-tooltip = " Most {{post.grade1}}, {{post.major1}} Student participate! " style = "margin-left:1%;">
                     <i class="material-icons">people</i>
                   </a>
@@ -95,7 +95,7 @@
                 </a>
             </div>
 
-            <div class="divider"></div>
+            <!--<div class="divider"></div>-->
 
         {% endfor %}
 
