@@ -37,7 +37,7 @@
                             </h5>
                         </span>
                     </div>
-
+                    <br>
                     <div style = "text-align: center;">
                         <a class="btn-floating btn-large waves-effect waves-light tooltipped tooltipped" data-position="bottom" data-delay="40" data-tooltip = " 10 Students Like this Event! ">
                         <i class="material-icons">thumb_up</i>
@@ -55,15 +55,15 @@
                     <br>
                 </div>
                 <br>
-                        {% if post.published_date %}
-            <div class="date">
-                {{ post.published_date }}
+            <div style = "text-align: right;">
+                {% if post.published_date %}
+                <div class="date">
+                    {{ post.published_date }}
+                </div>
+                {% endif %}
+                <a class="waves-effect waves-light btn" href="{% url 'post_edit' pk=post.pk %}">EDIT</a>
+                <a class="waves-effect waves-light btn" href="{% url 'post_remove' pk=post.pk %}">DELETE</a>
             </div>
-        {% endif %}
-        <a class="waves-effect waves-light btn" href="{% url 'post_edit' pk=post.pk %}">EDIT</a>
-        <a class="waves-effect waves-light btn" href="{% url 'post_remove' pk=post.pk %}">DELETE</a>
-
-
             </div>
             </div>
         </div>
