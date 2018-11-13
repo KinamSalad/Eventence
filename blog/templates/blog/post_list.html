@@ -2,7 +2,7 @@
 
 {% block content %}
         <label>{{user.username}}</label>
-        <a class="waves-effect waves-light btn" href="{% url 'post_new' %}" class="top-menu">NEW POST</a>
+        <!--<a class="waves-effect waves-light btn" href="{% url 'post_new' %}" class="top-menu">NEW POST</a>-->
         <a class="waves-effect waves-light btn" href="{% url 'login' %}" class="top-menu">Login</a>
         <a class="waves-effect waves-light btn" href="{% url 'logout' %}" class="top-menu">Logout</a>
         <div class="divider"></div>
@@ -39,7 +39,16 @@
 
 
             </div>
+
+            <!-- upload를 위한 Button -->
+            <div class="fixed-action-btn">
+                <a href = "{% url 'post_new' %}" class="btn-floating btn-large red tooltipped" data-position="left" data-delay="40" data-tooltip = " Share the Event! ">
+                    <i class="large material-icons">mode_edit</i>
+                </a>
+            </div>
+
             <div class="divider"></div>
+
         {% endfor %}
 
         <!-- JS SCRIPT-->
