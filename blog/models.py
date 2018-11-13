@@ -34,10 +34,10 @@ class Post(models.Model):
     keyword_prefix = models.CharField(max_length=50, default = "")
     keyword_suffix = models.CharField(max_length=50, default = "")
 
-    keyword1_prefix = models.CharField(max_length=50, default = "prefix1")
-    keyword1_suffix = models.CharField(max_length=50, default = "suffix1")
-    keyword2_prefix = models.CharField(max_length=50, default = "prefix2")
-    keyword2_suffix = models.CharField(max_length=50, default = "suffix2")
+    keyword1_prefix = models.CharField(max_length=50, default = "Do you like")
+    keyword1_suffix = models.CharField(max_length=50, default = "?")
+    keyword2_prefix = models.CharField(max_length=50, default = "Are you")
+    keyword2_suffix = models.CharField(max_length=50, default = "?")
 
 
     def like_count(self):
