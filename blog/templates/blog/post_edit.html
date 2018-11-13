@@ -1,13 +1,38 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    <h1>New post</h1>
+	<div>
+	<div class = "container" style = "max-width: 50%;">
+	<div class="z-depth-1" style = "background-color: #ffffff;">
+
+    <div>
+    	<h4 class = "headText" style = "margin-top:1%;">
+    		<i class="material-icons" style="font-size:30px;">event_available</i>
+    		<b>Share Campus Event!</b>
+    	</h4>
+    </div>
+
+    <blockquote>
+    	<b>Please Write about Event!</b>
+    </blockquote>
+
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="waves-effect waves-light btn">Save</button>
+        <div class="right-align" style="margin-right: 10%;">
+        	<button type="submit" class="waves-effect waves-light btn">Submit</button>
+    	</div>
     </form>
+    <br>
+    <br>
 
 
+	</div>
+	</div>
+	</div>
+	<br>
+    <br>
+
+<!--
     <div>
     	<div class="container" style = "max-width: 50%;">
     		<div class="z-depth-1" style = "background-color: #ffffff;">
@@ -22,10 +47,10 @@
     				<blockquote>
       					<b>Please Write about Event!</b>
     				</blockquote>
-    				<!-- Input Start -->
+  
     				<div class="row">
 	    				<form class="col s12">
-	    					<!-- 1) EVENT NAME -->
+	    
 	    					<div class="row" style = "max-width: 80%; margin-left: auto;margin-right: auto;">
 						        <div class="input-field col s12">
 						          <input id="title" type="text" class="validate">
@@ -33,7 +58,7 @@
 						        </div>
 						    </div>
 
-						    <!-- 2) Date, Time -->
+				
 		      				<div class="row" style = "margin-left:10%;">
 			    				<div class="input-field col s6" style = "max-width: 43%;">
 				    				<i class="material-icons prefix">event</i>
@@ -46,7 +71,7 @@
 				    			</div>
 			    			</div>
 
-			    			<!-- 3) LOCATION -->
+		
 			    			<div class="row" style = "margin-left:10%;">
 			    				<div class="input-field col s12" style = "max-width: 85%;">
 				    				<i class="material-icons prefix">location_on</i>
@@ -58,7 +83,7 @@
 		    			<br>
 	    			</div>
 
-	    			<!-- Submit Button -->
+	
 	    			<div class="right-align" style="margin-right: 10%;">
 	    				<button type="submit" class="waves-effect waves-light btn">Submit</button>
 	    			</div>
@@ -74,6 +99,6 @@
     </div>
     <br>
     <br>
-
+-->
 
 {% endblock %}
