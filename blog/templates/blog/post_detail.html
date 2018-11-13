@@ -1,6 +1,78 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+   <!-- Body START -->
+    <div class="post">
+        <div class="container" >
+            <div class="z-depth-1" style = "background-color: #ffffff;padding-bottom: 2%;">
+            <div class = "row"> 
+                <div class = "col s12" style = "margin-bottom: 3%;">
+                    <h4 class = "headText">
+                        <b>{{ post.title }}</b>
+                    </h4>
+
+                    <div style = "text-align: center; margin-bottom: 2%;">
+                        <div class = "center-chip" style="margin-top:2%; color : #757575;"> 
+                        <i class="small material-icons" style="font-size: 15px; margin-right: 1%;">access_time</i>
+                        <b style="font-size: 15px;">{{ post.time }} </b>
+                        <i class="small material-icons" style="font-size: 15px; margin-right: 1%; margin-left:5%;">location_on</i>
+                        <b style="font-size: 15px;">{{ post.place }} </b>
+                        </div>
+                    </div>
+
+                    <div class = "headText input-field">
+                        <span>
+                        <h5> <b>is good for who likes </b> 
+                            <b>( 
+                                <input type="text" id="autocomplete-input" class="autocomplete" style = "max-width: 40%; padding-left: 1%; font-size:20px;">
+                            ) </b>
+                            </h5>
+                        </span>
+                        <span>
+                        <h5> <b>or who is </b> 
+                            <b>( 
+                                <input type="text" id="autocomplete-input" class="autocomplete" style = "max-width: 40%; padding-left: 1%; font-size:20px;">
+                            ) </b>
+                                <a type="submit" href= "thanks.html" class="btn" style="margin-left:2%;">
+                                    <span>SEND</span>
+                                </a>
+                            </h5>
+                        </span>
+                    </div>
+
+                    <div style = "text-align: center;">
+                        <a class="btn-floating btn-small waves-effect waves-light tooltipped tooltipped" data-position="bottom" data-delay="40" data-tooltip = " 10 Students Like this Event! ">
+                        <i class="material-icons">thumb_up</i>
+                        </a>
+
+                        <a class="btn-floating btn-small waves-effect waves-light tooltipped" data-position="bottom" data-delay="40" data-tooltip = " Most Undergrad, CS Student participate! " style = "margin-left:1%;">
+                        <i class="material-icons">people</i>
+                        </a>
+
+                        <a class="btn-floating btn-small waves-effect waves-light tooltipped red" data-position="bottom" data-delay="40" data-tooltip = " Check the result! " style = "margin-left:1%;">
+                        <i class="material-icons">map</i>
+                        </a>
+
+                    </div>
+                    <br>
+                </div>
+                <br>
+                        {% if post.published_date %}
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+        {% endif %}
+        <a class="waves-effect waves-light btn" href="{% url 'post_edit' pk=post.pk %}">EDIT</a>
+        <a class="waves-effect waves-light btn" href="{% url 'post_remove' pk=post.pk %}">DELETE</a>
+
+
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+<!--
     <div class="post">
         {% if post.published_date %}
             <div class="date">
@@ -13,7 +85,7 @@
         <p> {{ post.time }} </p>
         <p> {{ post.place }} </p>
         <!-- KEYWORD SUBMIT BUTTON-->
-        <p>
+        <!--<p>
             <form method="POST" class="post-form">{% csrf_token %}
                 {{ form.as_p }}
                 <button type="submit" class="waves-effect waves-light btn">Save</button>
@@ -30,8 +102,10 @@
                         {{ like_user.username }}
                     {% endfor %}
                 </p>-->
-        </p>
-    </div>
+        <!--</p>
+    </div>-->
+
+
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script type="text/javascript">
