@@ -1,7 +1,9 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-<h2>Sign up</h2>
+
+<div class="container" style="width: 40%; padding: 40px 30px 20px 30px">
+<h2 style = "text-align:center;">Sign up</h2>
 <form method="post">
 	{% csrf_token %}
 
@@ -146,5 +148,6 @@
 <button class="waves-effect waves-light btn" type="submit">Sign up</button>
 </p>
 </form>
+</div>
 
 {% endblock %}
