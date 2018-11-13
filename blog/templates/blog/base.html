@@ -1,7 +1,7 @@
 {% load static %}
 <html>
     <head>
-        <title>KinamSalad's suffer</title>
+        <title>Main</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
@@ -10,12 +10,36 @@
 
 
     <body>
+        <!--
         <div class = 'page-header'>
             <h1><a href="{% url 'post_list' %}">KinamSalad's suffer</a></h1>
+        </div>-->
+        <div class="navbar">
+            <nav class="navColor">
+                <div class="nav-wrapper">
+                    <a href="" class="brand-logo" style="margin-left:2%;">
+                    Eventences!
+                    </a>
+
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="">All Events</a></li>
+                        <li><a href="">Opinion</a></li>
+                        <li><a href="">About ESC</a></li>
+                    </ul>
+
+                </div>
+            </nav>
         </div>
+        <br>
 
         {% block content %}
         {% endblock %}
+
+        <div class="fixed-action-btn">
+          <a href = "" class="btn-floating btn-large red tooltipped" data-position="left" data-delay="40" data-tooltip = " Share the Event! ">
+            <i class="large material-icons">mode_edit</i>
+          </a>
+        </div>
 
     </body>
 </html>
