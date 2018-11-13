@@ -12,13 +12,14 @@
     		{% csrf_token %}
     		<input type="hidden" name="next" value="" />
     		{{ form.as_p }}
+        <div class="right-align">
+          <a href="{% url 'sign_up' %}" style="float: left; margin-top: 10px" >
+          <u>No accounts?</u></a>
+          <button type="submit" class="waves-effect waves-light btn">Sign In</button>
+        </div>
     	</form>
 
-    	<div class="right-align">
-      		<a href="{% url 'sign_up' %}" style="float: left; margin-top: 10px" >
-        	<u>No accounts?</u></a>
-      		<button type="submit" class="waves-effect waves-light btn">Sign In</button>
-    	</div>
+
 
 
 
