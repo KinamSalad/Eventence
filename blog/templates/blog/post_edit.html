@@ -8,7 +8,7 @@
 	<br>
 	<br>
     <div>
-    	<h4 class = "headText" style = "margin-top:2%;text-align: center;">
+    	<h4 class = "headText" style = "margin-top:2%; margin-bottom: 3%;text-align: center;">
     		<i class="material-icons" style="font-size:30px;">event_available</i>
     		<b>Share Campus Event!</b>
     	</h4>
@@ -20,7 +20,7 @@
 
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
-        <div class="right-align" style="margin-right: 10%;">
+        <div class="right-align">
         	<button type="submit" class="waves-effect waves-light btn">Submit</button>
     	</div>
     </form>
