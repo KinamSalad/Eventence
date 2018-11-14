@@ -1,13 +1,33 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-	<title>KinamSalad's suffer</title>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<title>Eventences</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 </head>
 <body>
-	<div><h1><a href="{% url 'login' %}">Hello?</a></h1></div>
-
+	<div class = "center-div">
+		<img src="Images/hello-01.png" class="center-img" height="350px">
+		<h1 style = "text-align: center;">
+			<a href="{% url 'login' %}" class="waves-effect waves-light btn-large" style ="background-color : #ec6f75;">
+				GET STARTED!</a>
+		</h1>
+	</div>
 </body>
 </html>
 
+<style>
+  .center-img {
+  	display:block; 
+  	margin-left: auto; 
+  	margin-right: auto;
+  }
+
+  .center-div {
+    position:absolute;
+    max-width:80%; max-height:70%;
+    width:auto; height:auto;
+    margin:auto;
+    top:0; bottom:0; left:0; right:0;
+  }
+</style>
