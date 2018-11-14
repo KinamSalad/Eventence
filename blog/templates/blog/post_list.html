@@ -43,13 +43,16 @@
                 </div>
 
                 <div class="card-action">
+                  <span>
                   <button class="like btn-floating btn-small waves-effect waves-light" name="{{ post.pk }}" value="Like" style = "margin-right:1%;">
                     <i class="material-icons">thumb_up</i>
                   </button>
                   <div id="count-{{ post.pk }}">{{ post.like_count }} Likes</div>
-                  <span style = "text-align: right;">
+
+                  <div style = "text-align: right;">
                       <div class="chip" id="grade-{{ post.pk }}" > {{ post.grade1 }} </div>
                       <div class = "chip" id="major-{{ post.pk }}"> {{ post.major1 }} </div>
+                  </div>
                   </span>
 
                 </div>
