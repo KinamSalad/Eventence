@@ -19,7 +19,28 @@
     </blockquote>
 
     <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
+        <!--{{ form.as_p }}-->
+        <div class="row" style = "max-width: 80%; margin-left: auto;margin-right: auto;">
+        	<div class="input-field col s12">
+        		<input id="title" name = "title" type="text" class="validate">
+        		<label for="text" data-error="wrong" data-success="right">Event Title</label>
+        	</div>
+        </div>
+
+        <div class="row" style = "margin-left:10%;">
+        	<div class="input-field col s12" style = "max-width: 85%;">
+        		<i class="material-icons prefix">event</i>
+        		<input type="text" name = "time" class="datepicker">
+        	</div>
+        </div>
+
+        <div class="row" style = "margin-left:10%;">
+        	<div class="input-field col s12" style = "max-width: 85%;">
+        		<i class="material-icons prefix">location_on</i>
+        		<input type="text" name = "place">
+        	</div>
+        </div>
+
         <div class="right-align">
         	<button type="submit" class="waves-effect waves-light btn">Submit</button>
     	</div>
@@ -32,6 +53,21 @@
 	</div>
 	<br>
     <br>
+
+    <script>
+    	$('.timepicker').pickatime({
+		    default: 'now', // Set default time: 'now', '1:30AM', '16:30'
+		    fromnow: 0,       // set default time to * milliseconds from now (using with default = 'now')
+		    twelvehour: false, // Use AM/PM or 24-hour format
+		    donetext: 'OK', // text for done-button
+		    cleartext: 'Clear', // text for clear-button
+		    canceltext: 'Cancel', // Text for cancel-button,
+		    container: undefined, // ex. 'body' will append picker to body
+		    autoclose: false, // automatic close timepicker
+		    ampmclickable: true, // make AM PM clickable
+		    aftershow: function(){} //Function for after opening timepicker
+  		});
+    </script>
 
 <!--
     <div>
