@@ -39,18 +39,15 @@
                 </div>
 
                 <div class="card-action">
-                  <span>
-                  <button class="like btn-floating btn-small waves-effect waves-light tooltipped" name="{{ post.pk }}" value="Like" style = "margin-right:1%;" data-position="bottom" data-delay="50" data-tooltip="I am a tooltip">
+
+                  <button class="like btn-floating btn-small waves-effect waves-light" name="{{ post.pk }}" value="Like" style = "margin-right:1%;">
                     <i class="material-icons">thumb_up</i>
                   </button>
-                  <div id="count-{{ post.pk }}">{{ post.like_count }} Likes</div>
+                  <span id="count-{{ post.pk }}" style = "margin-right: 2%;"><b>{{ post.like_count }} Likes</b></span>
 
-                  <div style = "text-align: right;">
-                      <div class="chip" id="grade-{{ post.pk }}" > {{ post.grade1 }} </div>
-                      <div class = "chip" id="major-{{ post.pk }}"> {{ post.major1 }} </div>
-                  </div>
-                  </span>
 
+                  <div class = 'chip' id="grade-{{ post.pk }}" >{{post.grade1}}</div>
+                  <div class = 'chip' id="major-{{ post.pk }}">{{post.major1}}</div>
                 </div>
 
             </div>
@@ -90,20 +87,20 @@
 
 
             </div>
+            <!--<div class="divider"></div>-->
 
-            <!-- upload를 위한 Button -->
+        {% endfor %}
+
+
+         <!-- upload를 위한 Button -->
             <div class="fixed-action-btn">
                 <a href = "{% url 'post_new' %}" class="btn-floating btn-large red tooltipped" data-position="left" data-delay="40" data-tooltip = " Share the Event! ">
                     <i class="large material-icons">mode_edit</i>
                 </a>
             </div>
 
-            <!--<div class="divider"></div>-->
-
-        {% endfor %}
 
         <!-- JS SCRIPT-->
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
             <script type="text/javascript">
                 $(".like").click(function(){
                     var pk = $(this).attr('name')
@@ -115,7 +112,7 @@
                         // 서버측에서 전송한 Response 데이터 형식 (json)
                         success: function(response){ // 통신 성공시 - 동적으로 좋아요 갯수 변경, 유저 목록 변경
                             //alert(response.message);
-                            $("#count-"+pk).html(response.like_count+"개");
+                            $("#count-"+pk).html(response.like_count);
                             $("#grade-"+pk).html(response.grade1);
                             $("#major-"+pk).html(response.major1);
                         },
