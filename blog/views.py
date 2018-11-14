@@ -67,6 +67,18 @@ def post_list(request):
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
+    
+    g_info = GradeInfo.objects.filter(post=post).order_by('-value')[0]
+    m_info = MajorInfo.objects.filter(post=post).order_by('-value')[0]
+
+    if g_info.value == 0:
+        post.grade1 = "None"
+    else:
+        post.grade1 = g_info.key
+
+    if m_info.value == 0:
+        post.major1 = "None"
+    
     if request.method == "POST":
         form = KeywordForm(request.POST)
         if form.is_valid():
@@ -88,13 +100,13 @@ def post_new(request):
             post.published_date = timezone.now()
             post.save()
             # Make gradeinfo model
-            a = GradeInfo(id=None, post=post,key="Ju", value=0)
+            a = GradeInfo(id=None, post=post,key="Junior", value=0)
             a.save()
-            a = GradeInfo(id=None, post=post,key="Se", value=0)
+            a = GradeInfo(id=None, post=post,key="Senior", value=0)
             a.save()
             a = GradeInfo(id=None, post=post,key="Ms", value=0)
             a.save()
-            a = GradeInfo(id=None, post=post,key="Ph", value=0)
+            a = GradeInfo(id=None, post=post,key="PhD", value=0)
             a.save()
 
             #Make majorinfo model
@@ -245,11 +257,23 @@ def keyword_reset(request):
 
 def post_cat(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    return render(request, 'blog/post_cat.html', {'post': post})
+    index = randint(1, 10)
+    path = "../../static/images/cat_"+str(index)+ ".jpg"
+    return render(request, 'blog/post_cat.html', {'post': post, 'path': path})
 
 def post_result(request, pk):
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'blog/post_result.html', {'post': post})
+
+def json2(request):
+    # open, generate, fetch the json file
+    # for e.g.:
+    context = {
+                'delimiters': [",", " ",";"]}
+
+    json_string = json.dumps(context)
+
+    return render(request, "blog/json2.html", {'time_series_json_string': json_string})
 
 
 

@@ -22,15 +22,15 @@
         <!--{{ form.as_p }}-->
         <div class="row" style = "max-width: 80%; margin-left: auto;margin-right: auto;">
         	<div class="input-field col s12">
+                <label for="text">Event Title</label>
         		<input id="title" name = "title" type="text" class="validate">
-        		<label for="text" data-error="wrong" data-success="right">Event Title</label>
         	</div>
         </div>
 
         <div class="row" style = "margin-left:10%;">
         	<div class="input-field col s12" style = "max-width: 85%;">
         		<i class="material-icons prefix">event</i>
-        		<input type="text" name = "time" class="datepicker">
+        		<input type="date" class="datepicker" name = "time">
         	</div>
         </div>
 
@@ -53,18 +53,6 @@
 	</div>
 	<br>
     <br>
-
-    <script type="text/javascript">
-  $('.datepicker').pickadate({
-    selectMonths: true, // Creates a dropdown to control month
-    selectYears: 15, // Creates a dropdown of 15 years to control year,
-    today: 'Today',
-    clear: 'Clear',
-    close: 'Ok',
-    closeOnSelect: false, // Close upon selecting a date,
-    container: undefined, // ex. 'body' will append picker to body
-  });
-    </script>
 
 <!--
     <div>

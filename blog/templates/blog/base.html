@@ -2,8 +2,8 @@
 <html>
     <head>
         <title>Main</title>
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+        <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -39,7 +39,11 @@
                         <li><a href="">All Events</a></li>
                         <li><a href="https://goo.gl/forms/RjKHmZMvK5JAIFIu2" target="_blank">Opinion</a></li>
                         <li><a href="">About ESC</a></li>
-                        <li><a class="dropdown-button" href="#!" data-activates="account">{{user.username}}<i class="material-icons right">arrow_drop_down</i></a></li>
+                        {% if request.user.is_authenticated %}
+                            <li><a class="dropdown-button" href="#!" data-activates="account">{{user.username}}<i class="material-icons right">arrow_drop_down</i></a></li>
+                        {% else %}
+                            <li><a class="dropdown-button" href="#!" data-activates="account">GUEST<i class="material-icons right">arrow_drop_down</i></a></li>
+                        {% endif %}
                     </ul>
 
                 </div>

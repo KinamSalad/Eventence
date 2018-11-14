@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	{{ jsonObject }}
+</body>
+</html>
+
+<script>
+    var jsonObject = JSON.parse('{{ time_series_json_string | safe }}');
+    console.log(jsonObject)
+</script>
