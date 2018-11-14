@@ -43,12 +43,14 @@
                 </div>
 
                 <div class="card-action">
-                  <button class="like btn-floating btn-small waves-effect waves-light tooltipped" name="{{ post.pk }}" value="Like" data-position="bottom" data-delay="40" data-tooltip = "Students Like this Event! " style = "margin-right:1%;">
+                  <button class="like btn-floating btn-small waves-effect waves-light" name="{{ post.pk }}" value="Like" style = "margin-right:1%;">
                     <i class="material-icons">thumb_up</i>
                   </button>
-                  <!--<div id="count-{{ post.pk }}">{{ post.like_count }}개</div>-->
-                  <div class="chip" id="grade-{{ post.pk }}" > {{ post.grade1 }} </div>
-                  <div class = "chip" id="major-{{ post.pk }}"> {{ post.major1 }} </div>
+                  <div id="count-{{ post.pk }}">{{ post.like_count }} Likes</div>
+                  <span style = "text-align: right;">
+                      <div class="chip" id="grade-{{ post.pk }}" > {{ post.grade1 }} </div>
+                      <div class = "chip" id="major-{{ post.pk }}"> {{ post.major1 }} </div>
+                  </span>
 
                 </div>
 
