@@ -1,7 +1,43 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+	<!--
     <h1>CAT!</h1>
     <a class="waves-effect waves-light btn" href="{% url 'post_result' pk=post.pk %}">Go to result</a>
     <a class="waves-effect waves-light btn" href="{% url 'post_list' %}">Back to list</a>
+	-->
+	
+    <!-- Body START -->
+    <div>
+    	<div class="container" >
+    		<div class="z-depth-1" style = "background-color: #ffffff;padding-bottom: 2%;">
+    		<div class = "row">	
+    			<div class = "col s12" style = "margin-bottom: 3%;">
+    				<h4 class = "headText" >
+    					<b>Thank you for your Sharing!</b>
+    				</h4>
+
+    				<div style = "text-align: center; margin-bottom: 2%;">
+    					<div class = "center-chip" style="margin-top:2%; color : #757575;"> 
+	                    <i class="small material-icons" style="font-size: 15px;">info</i>
+	                    <b style="font-size: 18px;"> Siwoel is a boy and he likes touching his head! </b>
+    				</div>
+
+
+    				<br>
+    				<div>
+	    				<img class="materialboxed" width="650" style = "margin:0 auto;" src="Images/sample.jpg">
+              		</div>
+              		<br>
+              		<div>
+              			<a href="{% url 'post_result' pk=post.pk %}" class="waves-effect waves-light btn" style="margin-right:1%;">GO TO RESULT</a>
+              			<a href="{% url 'post_list' %}" class="waves-effect waves-light btn">BACK</a>
+              		</div>
+    			</div>
+
+    		</div>
+    		</div>
+   		</div>
+	</div>
+
 {% endblock %}
