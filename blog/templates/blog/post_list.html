@@ -1,11 +1,7 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-        <label>{{user.username}}</label>
-        <!--<a class="waves-effect waves-light btn" href="{% url 'post_new' %}" class="top-menu">NEW POST</a>-->
-        <a class="waves-effect waves-light btn" href="{% url 'login' %}" class="top-menu">Login</a>
-        <a class="waves-effect waves-light btn" href="{% url 'logout' %}" class="top-menu">Logout</a>
-        <div class="divider"></div>
+
         {% for post in posts %}
             <div class="row">
             <div class="col s12">
