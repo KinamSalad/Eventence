@@ -12,12 +12,12 @@
             <div class="card center-div">
             <div class="card-content">
             <div style = "color:#222;">
+                <a class="reset" name="{{ post.pk }}" value="Like" style = "color:#222; margin-right: 1%;">
+                    <i class="material-icons">loop</i>
+                </a>
+
                 <span class="card-title" style="text-align: center;">
                     <h4>
-                    <a class="reset" name="{{ post.pk }}" value="Like" style = "color:#222; margin-right: 1%;">
-                        <i class="material-icons">loop</i>
-                        </a>
-
                         <b id = "prefix-{{ post.pk }}">{{post.keyword_prefix}}</b>
                           <b><span id = "keyword-{{ post.pk }}" style = "color:#f1404b;"> {{post.keywordrand}}</span></b>
                           <b id = "suffix-{{ post.pk }}">{{post.keyword_suffix}}
