@@ -18,6 +18,14 @@
                         <i class="small material-icons" style="font-size: 15px; margin-right: 1%; margin-left:5%;">location_on</i>
                         <b style="font-size: 15px;">{{ post.place }} </b>
                         </div>
+                        <button class="like btn-floating btn-small waves-effect waves-light" name="{{ post.pk }}" value="Like" style = "margin-right:1%;">
+                    <i class="material-icons">thumb_up</i>
+                  </button>
+                  <span id="count-{{ post.pk }}" style = "margin-right: 2%;"><b>{{ post.like_count }} Likes</b></span>
+
+
+                  <div class = 'chip' id="grade-{{ post.pk }}" >{{post.grade1}}</div>
+                  <div class = 'chip' id="major-{{ post.pk }}">{{post.major1}}</div>
                     </div>
 
                     <form method="POST" class="post-form">{% csrf_token %}
@@ -59,17 +67,8 @@
                 </div>
                 <br>
 
-            <div>
-            <button class="like btn-floating btn-small waves-effect waves-light" name="{{ post.pk }}" value="Like" style = "margin-right:1%;">
-                    <i class="material-icons">thumb_up</i>
-                  </button>
-                  <span id="count-{{ post.pk }}" style = "margin-right: 2%;"><b>{{ post.like_count }} Likes</b></span>
 
-
-                  <div class = 'chip' id="grade-{{ post.pk }}" >{{post.grade1}}</div>
-                  <div class = 'chip' id="major-{{ post.pk }}">{{post.major1}}</div>
-
-            <div style = "max-width:40%; text-align: right;">
+            <div style = "text-align: right;">
                 {% if post.published_date %}
                 <div class="date">
                     {{ post.published_date }}
@@ -78,7 +77,6 @@
                 <a class="waves-effect waves-light btn" href="{% url 'post_edit' pk=post.pk %}">EDIT</a>
                 <a class="waves-effect waves-light btn" href="{% url 'post_remove' pk=post.pk %}">DELETE
                     <i class="material-icons left">delete</i></a>
-            </div>
             </div>
             </div>
             </div>
