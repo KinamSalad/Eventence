@@ -12,20 +12,18 @@
                     </h4>
 
                     <div style = "text-align: center; margin-bottom: 2%;">
-                        <div class = "center-chip" style="margin-top:2%; color : #757575;"> 
+                        <div class = "center-chip" style="margin-top:2%; margin-bottom:2%; color : #757575;"> 
                         <i class="small material-icons" style="font-size: 15px; margin-right: 1%;">access_time</i>
                         <b style="font-size: 15px;">{{ post.time }} </b>
                         <i class="small material-icons" style="font-size: 15px; margin-right: 1%; margin-left:5%;">location_on</i>
                         <b style="font-size: 15px;">{{ post.place }} </b>
                         </div>
                         <button class="like btn-floating btn-small waves-effect waves-light" name="{{ post.pk }}" value="Like" style = "margin-right:1%;">
-                    <i class="material-icons">thumb_up</i>
-                  </button>
-                  <span id="count-{{ post.pk }}" style = "margin-right: 2%;"><b>{{ post.like_count }} Likes</b></span>
-
-
-                  <div class = 'chip' id="grade-{{ post.pk }}" >{{post.grade1}}</div>
-                  <div class = 'chip' id="major-{{ post.pk }}">{{post.major1}}</div>
+                            <i class="material-icons">thumb_up</i>
+                        </button>
+                        <span id="count-{{ post.pk }}" style = "margin-right: 2%;"><b>{{ post.like_count }} Likes</b></span>
+                        <div class = 'chip' id="grade-{{ post.pk }}" >{{post.grade1}}</div>
+                        <div class = 'chip' id="major-{{ post.pk }}">{{post.major1}}</div>
                     </div>
 
                     <form method="POST" class="post-form">{% csrf_token %}
