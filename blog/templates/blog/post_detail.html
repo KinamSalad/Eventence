@@ -59,6 +59,7 @@
                 </div>
                 <br>
 
+            <div>
             <button class="like btn-floating btn-small waves-effect waves-light" name="{{ post.pk }}" value="Like" style = "margin-right:1%;">
                     <i class="material-icons">thumb_up</i>
                   </button>
@@ -77,6 +78,7 @@
                 <a class="waves-effect waves-light btn" href="{% url 'post_edit' pk=post.pk %}">EDIT</a>
                 <a class="waves-effect waves-light btn" href="{% url 'post_remove' pk=post.pk %}">DELETE
                     <i class="material-icons left">delete</i></a>
+            </div>
             </div>
             </div>
             </div>
