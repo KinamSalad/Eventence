@@ -44,7 +44,7 @@
 
                 <div class="card-action">
                   <span>
-                  <button class="like btn-floating btn-small waves-effect waves-light" name="{{ post.pk }}" value="Like" style = "margin-right:1%;">
+                  <button class="like btn-floating btn-small waves-effect waves-light tooltipped" name="{{ post.pk }}" value="Like" style = "margin-right:1%;" data-position="bottom" data-delay="50" data-tooltip="I am a tooltip">
                     <i class="material-icons">thumb_up</i>
                   </button>
                   <div id="count-{{ post.pk }}">{{ post.like_count }} Likes</div>
@@ -130,6 +130,8 @@
                         },
                     });
                 })
+
+                $('.tooltipped').tooltip({delay: 50});
 
                 $(".reset").click(function(){
                     var pk = $(this).attr('name')
