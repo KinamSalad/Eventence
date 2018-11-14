@@ -41,15 +41,16 @@
                     </form>
                     <br>
                     <div style = "text-align: center;">
+                        <!--
                         <a class="btn-floating btn-large waves-effect waves-light tooltipped tooltipped" data-position="bottom" data-delay="40" data-tooltip = " 10 Students Like this Event! ">
                         <i class="material-icons">thumb_up</i>
                         </a>
 
                         <a class="btn-floating btn-large waves-effect waves-light tooltipped" data-position="bottom" data-delay="40" data-tooltip = " Most Undergrad, CS Student participate! " style = "margin-left:1%;">
                         <i class="material-icons">people</i>
-                        </a>
+                        </a>-->
 
-                        <a class="btn-floating btn-large waves-effect waves-light tooltipped red" data-position="bottom" data-delay="40" data-tooltip = " Check the result! " style = "margin-left:1%;">
+                        <a href = "{% url 'post_result' %}" class="btn-floating btn-large waves-effect waves-light tooltipped red" data-position="bottom" data-delay="40" data-tooltip = " Check the result! " style = "margin-left:1%;">
                         <i class="material-icons">map</i>
                         </a>
 
@@ -57,6 +58,16 @@
                     <br>
                 </div>
                 <br>
+                
+            <button class="like btn-floating btn-small waves-effect waves-light" name="{{ post.pk }}" value="Like" style = "margin-right:1%;">
+                    <i class="material-icons">thumb_up</i>
+                  </button>
+                  <span id="count-{{ post.pk }}" style = "margin-right: 2%;"><b>{{ post.like_count }} Likes</b></span>
+
+
+                  <div class = 'chip' id="grade-{{ post.pk }}" >{{post.grade1}}</div>
+                  <div class = 'chip' id="major-{{ post.pk }}">{{post.major1}}</div>
+
             <div style = "text-align: right;">
                 {% if post.published_date %}
                 <div class="date">
