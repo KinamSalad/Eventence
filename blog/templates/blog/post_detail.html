@@ -69,7 +69,7 @@
                   <div class = 'chip' id="grade-{{ post.pk }}" >{{post.grade1}}</div>
                   <div class = 'chip' id="major-{{ post.pk }}">{{post.major1}}</div>
 
-            <span style = "text-align: right;">
+            <div style = "max-width:40%; text-align: right;">
                 {% if post.published_date %}
                 <div class="date">
                     {{ post.published_date }}
@@ -78,7 +78,7 @@
                 <a class="waves-effect waves-light btn" href="{% url 'post_edit' pk=post.pk %}">EDIT</a>
                 <a class="waves-effect waves-light btn" href="{% url 'post_remove' pk=post.pk %}">DELETE
                     <i class="material-icons left">delete</i></a>
-            </span>
+            </div>
             </div>
             </div>
             </div>
