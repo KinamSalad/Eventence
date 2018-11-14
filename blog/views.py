@@ -265,15 +265,6 @@ def post_result(request, pk):
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'blog/post_result.html', {'post': post})
 
-def json2(request):
-    # open, generate, fetch the json file
-    # for e.g.:
-    context = {
-                'delimiters': [",", " ",";"]}
-
-    json_string = json.dumps(context)
-
-    return render(request, "blog/json2.html", {'time_series_json_string': json_string})
 
 
 

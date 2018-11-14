@@ -13,6 +13,5 @@ urlpatterns = [
     url(r'^like/$', views.post_like, name='post_like'), #like operation
     url(r'^reset/$', views.keyword_reset, name='keyword_reset'), #keyword reset operation
     url(r'^post/(?P<pk>\d+)/cat$', views.post_cat, name='post_cat'),
-    url(r'^post/(?P<pk>\d+)/result$', views.post_result, name='post_result'),
-    url(r'^json2/$', views.json2, name='json2')
+    url(r'^post/(?P<pk>\d+)/result$', views.post_result, name='post_result')
 ]
