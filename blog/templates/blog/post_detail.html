@@ -48,9 +48,21 @@
                     <br>
                     <div style = "text-align: center;">
 
-                        <a href = "{% url 'post_result' pk=post.pk %}" class="btn-floating btn-large waves-effect waves-light tooltipped red" data-position="bottom" data-delay="40" data-tooltip = " Check the result! " style = "margin-left:1%;">
+                        <a class="btn-floating btn-large waves-effect waves-light tooltipped red modal-trigger" data-position="bottom" href="#modal1" data-delay="40" data-tooltip = " Check the result! " style = "margin-left:1%;">
                         <i class="material-icons">map</i>
                         </a>
+                        <div id = "modal1" class="modal">
+                        	<div class="modal-content">
+                        		<p>
+                        			<img class="materialboxed" width="650" style = "margin:0 auto;" src= "../../static/images/cat_1.jpg">
+                        		</p>
+                        		
+                        	</div>
+                        	<div class="modal-footer">
+                        		<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat"></a>
+                        	</div>
+                        	
+                        </div>
 
                     </div>
                     <br>
@@ -74,6 +86,12 @@
     </div>
 
         <script type="text/javascript">
+
+        	$(document).ready(function(){
+        		$('.modal').modal();
+        	});
+
+
             $(".like").click(function(){
                 var pk = $(this).attr('name')
                 $.ajax({ // .like 버튼을 클릭하면 <새로고침> 없이 ajax로 서버와 통신하겠다.
