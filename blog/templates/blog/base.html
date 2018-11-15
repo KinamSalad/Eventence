@@ -11,16 +11,6 @@
 
 
     <body>
-        <!--
-        <div class = 'page-header'>ddd
-            <h1><a href="{% url 'post_list' %}">KinamSalad's suffer</a></h1>
-        </div>-->
-
-        <!--
-        <label>{{user.username}}</label>
-        <a class="waves-effect waves-light btn" href="{% url 'login' %}" class="top-menu">Login</a>
-        <a class="waves-effect waves-light btn" href="{% url 'logout' %}" class="top-menu">Logout</a>
-        <div class="divider"></div>-->
 
         <ul id="account" class="dropdown-content">
           <li><a href="{% url 'login' %}" class="top-menu">Login?</a></li>
@@ -36,9 +26,9 @@
                     </a>
 
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a href="">All Events</a></li>
+                        <li><a href="{% url 'post_list' %}">All Events</a></li>
                         <li><a href="https://goo.gl/forms/RjKHmZMvK5JAIFIu2" target="_blank">Opinion</a></li>
-                        <li><a href="">About ESC</a></li>
+                        <li><a href="{% url 'esc' %}">About ESC</a></li>
                         {% if request.user.is_authenticated %}
                             <li><a class="dropdown-button" href="#!" data-activates="account">{{user.username}}<i class="material-icons right">arrow_drop_down</i></a></li>
                         {% else %}

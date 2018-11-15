@@ -47,14 +47,6 @@
                     </form>
                     <br>
                     <div style = "text-align: center;">
-                        <!--
-                        <a class="btn-floating btn-large waves-effect waves-light tooltipped tooltipped" data-position="bottom" data-delay="40" data-tooltip = " 10 Students Like this Event! ">
-                        <i class="material-icons">thumb_up</i>
-                        </a>
-
-                        <a class="btn-floating btn-large waves-effect waves-light tooltipped" data-position="bottom" data-delay="40" data-tooltip = " Most Undergrad, CS Student participate! " style = "margin-left:1%;">
-                        <i class="material-icons">people</i>
-                        </a>-->
 
                         <a href = "{% url 'post_result' pk=post.pk %}" class="btn-floating btn-large waves-effect waves-light tooltipped red" data-position="bottom" data-delay="40" data-tooltip = " Check the result! " style = "margin-left:1%;">
                         <i class="material-icons">map</i>
@@ -80,40 +72,6 @@
             </div>
         </div>
     </div>
-
-
-<!--
-    <div class="post">
-        {% if post.published_date %}
-            <div class="date">
-                {{ post.published_date }}
-            </div>
-        {% endif %}
-        <a class="waves-effect waves-light btn" href="{% url 'post_edit' pk=post.pk %}">EDIT</a>
-        <a class="waves-effect waves-light btn" href="{% url 'post_remove' pk=post.pk %}">DELETE</a>
-        <h1>{{ post.title }}</h1>
-        <p> {{ post.time }} </p>
-        <p> {{ post.place }} </p>
-        <!-- KEYWORD SUBMIT BUTTON-->
-        <!--<p>
-            <form method="POST" class="post-form">{% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit" class="waves-effect waves-light btn">Save</button>
-            </form>
-        </p>
-        <p>
-            <button class="like waves-effect waves-light btn" name="{{ post.id }}" value="Like">Like!</button>
-
-                <p id="count-{{ post.id }}">{{ post.like_count }}개</p>
-                <div class = 'chip' id="grade-{{ post.pk }}" >{{post.grade1}}</div>
-                <div class = 'chip' id="major-{{ post.pk }}">{{post.major1}}</div>
-                <!--<p id="like-user-{{ post.id }}">
-                    {% for like_user in post.like_user_set.all %}
-                        {{ like_user.username }}
-                    {% endfor %}
-                </p>-->
-        <!--</p>
-    </div>-->
 
         <script type="text/javascript">
             $(".like").click(function(){

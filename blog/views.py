@@ -265,6 +265,9 @@ def post_result(request, pk):
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'blog/post_result.html', {'post': post})
 
+def esc(request):
+    return render(request, 'blog/esc.html')
+
 
 
 

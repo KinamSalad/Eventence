@@ -55,39 +55,7 @@
             </div>
             <br>
 
-<!--
-                <h2><p><div id = "prefix-{{ post.pk }}">{{post.keyword_prefix}}</div> 
-                    <div id = "keyword-{{ post.pk }}">{{post.keywordrand}}</div> 
-                    <div id = "suffix-{{ post.pk }}">{{post.keyword_suffix}}</div></p></h2>
-
-                <h5><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h5>
-                <p>{{ post.time }}<p>
-                <p>{{ post.place }}<p>
--->
-                <!-- LIKE BUTTON 
-                <p>
-                    <div><button class="like waves-effect waves-light btn" style="float:left;margin-right:10px " name="{{ post.pk }}" value="Like">Like!</button></div>
-                    <h5><div id="count-{{ post.pk }}">{{ post.like_count }}개</div></h5>
-                </p>-->
-
-                <!-- GRADE & MAJOR 
-
-                <p>
-                    <br>
-                    <div class = 'chip' id="grade-{{ post.pk }}" >{{post.grade1}}</div>
-                    <div class = 'chip' id="major-{{ post.pk }}">{{post.major1}}</div>
-                </p>-->
-
-                <!-- KEYWORD RESET BUTTON -->
-                <!--
-                <p>
-                    <div><button class="reset waves-effect waves-light btn" name="{{ post.pk }}" value="Like">RESET!</button></div>
-                </p>-->
-
-
-
             </div>
-            <!--<div class="divider"></div>-->
 
         {% endfor %}
 
