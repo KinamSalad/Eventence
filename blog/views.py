@@ -11,7 +11,13 @@ from django.views import generic
 from django.urls import reverse_lazy
 from django.http import HttpResponse
 import json
+import random
 from random import randint
+
+import os
+from collections import Counter
+import pytagcloud
+import sys
 
 def hello(request):
     return render(request, 'blog/hello.html')
@@ -78,7 +84,19 @@ def post_detail(request, pk):
 
     if m_info.value == 0:
         post.major1 = "None"
-    
+
+    wordlist = []
+    key = Keyword.objects.filter(post=post)
+    for i in key:
+        wordlist.append(i.keyword1)
+        wordlist.append(i.keyword2)
+    count = Counter(wordlist)
+    tag2 = count.most_common(30)
+    taglist = pytagcloud.make_tags(tag2, maxsize=30)
+    path = "blog/static/wordcloud/wordcloud_"+str(post)+".png"
+    path_html = "../../static/wordcloud/wordcloud_"+str(post)+".png"
+    pytagcloud.create_tag_image(taglist, path, size=(500, 500), fontname='Lobster', rectangular=False)
+
     if request.method == "POST":
         form = KeywordForm(request.POST)
         if form.is_valid():
@@ -90,7 +108,7 @@ def post_detail(request, pk):
         #   return redirect('post_cat', pk=post.pk)
     else:
         form = KeywordForm()        
-    return render(request, 'blog/post_detail.html', {'post': post, 'form': form})
+    return render(request, 'blog/post_detail.html', {'post': post, 'form': form, 'path': path_html})
 
 def post_new(request):
     if request.method == "POST":
@@ -167,6 +185,8 @@ def post_remove(request, pk):
     GradeInfo.objects.filter(post = post).delete()
     MajorInfo.objects.filter(post= post).delete()
     Keyword.objects.filter(post= post).delete()
+    path = 'blog/static/wordcloud/wordcloud_'+str(post)+'.png'
+    os.remove(path)
     post.delete()
 
     return redirect('post_list')
