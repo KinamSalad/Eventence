@@ -94,8 +94,7 @@ def post_detail(request, pk):
     count = Counter(wordlist)
     tag2 = count.most_common(30)
     taglist = pytagcloud.make_tags(tag2, maxsize=30)
-    path = settings.BASE_DIR+"/blog/static/wordcloud/wordcloud_"+str(post)+".png"  #path for local
-    #path = "~/crowdevent/blog/static/wordcloud/wordcloud_"+str(post)+".png"  #path for pythonanywhere
+    path = settings.BASE_DIR+"/blog/static/wordcloud/wordcloud_"+str(post)+".png"  
     path_html = "../../static/wordcloud/wordcloud_"+str(post)+".png"
     pytagcloud.create_tag_image(taglist, path, size=(500, 500), fontname='Lobster', rectangular=False)
 
@@ -187,7 +186,7 @@ def post_remove(request, pk):
     GradeInfo.objects.filter(post = post).delete()
     MajorInfo.objects.filter(post= post).delete()
     Keyword.objects.filter(post= post).delete()
-    path = 'blog/static/wordcloud/wordcloud_'+str(post)+'.png'
+    path = settings.BASE_DIR+"/blog/static/wordcloud/wordcloud_"+str(post)+".png"
     os.remove(path)
     post.delete()
 
