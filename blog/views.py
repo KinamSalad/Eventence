@@ -93,7 +93,8 @@ def post_detail(request, pk):
     count = Counter(wordlist)
     tag2 = count.most_common(30)
     taglist = pytagcloud.make_tags(tag2, maxsize=30)
-    path = "wordcloud_"+str(post)+".png"
+    #path = "blog/static/wordcloud/wordcloud_"+str(post)+".png"  #path for local
+    path = "~/crowdevent/blog/static/wordcloud/wordcloud_"+str(post)+".png"  #path for pythonanywhere
     path_html = "../../static/wordcloud/wordcloud_"+str(post)+".png"
     pytagcloud.create_tag_image(taglist, path, size=(500, 500), fontname='Lobster', rectangular=False)
 
