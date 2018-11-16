@@ -18,6 +18,7 @@ import os
 from collections import Counter
 import pytagcloud
 import sys
+from django.conf import settings
 
 def hello(request):
     return render(request, 'blog/hello.html')
@@ -93,8 +94,8 @@ def post_detail(request, pk):
     count = Counter(wordlist)
     tag2 = count.most_common(30)
     taglist = pytagcloud.make_tags(tag2, maxsize=30)
-    #path = "blog/static/wordcloud/wordcloud_"+str(post)+".png"  #path for local
-    path = "~/crowdevent/blog/static/wordcloud/wordcloud_"+str(post)+".png"  #path for pythonanywhere
+    path = settings.BASE_DIR+"/blog/static/wordcloud/wordcloud_"+str(post)+".png"  #path for local
+    #path = "~/crowdevent/blog/static/wordcloud/wordcloud_"+str(post)+".png"  #path for pythonanywhere
     path_html = "../../static/wordcloud/wordcloud_"+str(post)+".png"
     pytagcloud.create_tag_image(taglist, path, size=(500, 500), fontname='Lobster', rectangular=False)
 
