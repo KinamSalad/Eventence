@@ -3,7 +3,7 @@
 This paper contains informations about "Eventences".
 If you want to check the demo, Go to http://kinamsalad.pythonanywhere.com/
 
-## Folder Explanation
+## Files and Implementation Explanation
 ### 1) for Front-end Development
 #### (1) Eventence/blog/templates
 
@@ -15,6 +15,7 @@ All of HTML Files are in here.
 <br>post_cat.html is the reward for user who contribute our EVENTENCES.
 <br>esc.html is the introducing about our team.
 <br>sign_up.html is the sign-up page of EVENTENCES.
+<br>All HTML file contains CSS styles and Javascript function.
 
 #### (2) Eventence/static
 
@@ -25,3 +26,9 @@ All of using image files are in Eventence/static/images
 #### (1) Eventence/blog
 
 All of back-end files(.py file) in this folder.
+
+<br>forms.py sets up the labels of data.
+<br>views.py sets up the veiw of pages with html & Javascript.
+<br>admin.py sets up the admin mode.
+<br>models.py sets up the database model forms.
+<br>urls.py sets up the url of our system.
