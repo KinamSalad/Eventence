@@ -27,7 +27,7 @@ All of using image files are in Eventence/static/images
 
 All of back-end files(.py file) in this folder.
 
-<br>forms.py sets up the labels of data.
+<br>forms.py sets up the input forms of data.
 <br>views.py sets up the veiw of pages with html & Javascript.
 <br>admin.py sets up the admin mode.
 <br>models.py sets up the database model forms.
