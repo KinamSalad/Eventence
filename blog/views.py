@@ -187,7 +187,8 @@ def post_remove(request, pk):
     MajorInfo.objects.filter(post= post).delete()
     Keyword.objects.filter(post= post).delete()
     path = settings.BASE_DIR+"/blog/static/wordcloud/wordcloud_"+str(post)+".png"
-    os.remove(path)
+    if os.path.exists(path):
+        os.remove(path)
     post.delete()
 
     return redirect('post_list')
@@ -288,6 +289,10 @@ def post_result(request, pk):
 
 def esc(request):
     return render(request, 'blog/esc.html')
+
+def really_remove(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    return render(request, 'blog/really_remove.html', {'post': post})
 
 
 

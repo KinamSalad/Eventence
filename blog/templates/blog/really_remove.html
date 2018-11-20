@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+   <!-- Body START -->
+    <div class="post">
+        <div class="container" >
+            <div class="z-depth-1" style = "background-color: #ffffff;padding: 3% 10% 3% 10%;">
+            <div class = "row"> 
+                <div class = "col s12" style = "margin-bottom: 3%;">
+                    <h1 style = "text-align: center;">
+                        <b>Do you really remove this text???</b>
+                    </h1>
+                    <h3 style = "text-align: center;">
+                        <b>Think again!!</b>
+                    </h3>
+                    <div style = "text-align: center;">
+                        <a class="waves-effect waves-light btn-large" href="{% url 'post_list' %}">Back to List</a>
+
+                        <a class="waves-effect waves-light btn" href="{% url 'post_remove' pk=post.pk %}">DELETE</a>
+                    </div>
+
+{% endblock %}

@@ -14,5 +14,6 @@ urlpatterns = [
     url(r'^reset/$', views.keyword_reset, name='keyword_reset'), #keyword reset operation
     url(r'^post/(?P<pk>\d+)/cat$', views.post_cat, name='post_cat'),
     url(r'^post/(?P<pk>\d+)/result$', views.post_result, name='post_result'),
-    url(r'^esc/$', views.esc, name='esc')
+    url(r'^esc/$', views.esc, name='esc'),
+    url(r'^post/(?P<pk>\d+)/really_remove$', views.really_remove, name='really_remove')
 ]
