@@ -291,6 +291,9 @@ def post_result(request, pk):
 def esc(request):
     return render(request, 'blog/esc.html')
 
+def esc_help(request):
+    return render(request, 'blog/esc_help.html')
+
 def really_remove(request, pk):
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'blog/really_remove.html', {'post': post})
