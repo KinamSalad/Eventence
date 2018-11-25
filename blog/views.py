@@ -29,7 +29,7 @@ def post_list(request):
     if request.user.is_authenticated():
         user = request.user
     
-    posts = Post.objects.filter().order_by('time')
+    posts = Post.objects.filter().order_by('-time')
     
     for post in posts:
 
