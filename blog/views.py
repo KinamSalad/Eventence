@@ -47,17 +47,6 @@ def post_list(request):
             post.major1 = m_info.key
         
 
-        wordlist = []
-        key = Keyword.objects.filter(post=post)
-        for i in key:
-            wordlist.append(i.keyword1)
-            wordlist.append(i.keyword2)
-        count = Counter(wordlist)
-        tag2 = count.most_common(30)
-        taglist = pytagcloud.make_tags(tag2, maxsize=30)
-        path = settings.BASE_DIR+"/blog/static/wordcloud/wordcloud_"+str(post)+".png"  
-        path_html = "../../static/wordcloud/wordcloud_"+str(post)+".png"
-        pytagcloud.create_tag_image(taglist, path, size=(500, 500), rectangular=False)
 
         temp = Keyword.objects.filter(post=post)
         length = len(temp)
