@@ -28,43 +28,38 @@
                     <br>
 
                     <p>
-                        <img class="materialboxed" width="650" style = "margin:0 auto;" src= '{{ path }}'>
+                        <img class="materialboxed" width="500" style = "margin:0 auto;" src= '{{ path }}'>
                     </p>
 
 
 
                     <br>
-                    <div style = "text-align: center;">
-
+                    <div class="fixed-action-btn">
                         <a class="btn-floating btn-large waves-effect waves-light tooltipped red modal-trigger" data-position="bottom" href="#modal1" data-delay="40" data-tooltip = " Check the result! " style = "margin-left:1%;">
                         <i class="material-icons">map</i>
                         </a>
                         <div id = "modal1" class="modal">
                         	<div class="modal-content">
-                        		                    <form method="POST" class="post-form">{% csrf_token %}
-                    <div class = "headText input-field" style="text-align: center;">
-                        <span>
-                        <h5> <b>is good for who likes </b> 
-                            <b>( 
-                                <input type="text" id="autocomplete-input" name = "keyword1" class="autocomplete" style = "max-width: 40%; padding-left: 1%; font-size:20px;">
-                            ) </b>
-                            </h5>
-                        </span>
-                        <span>
-                        <h5> <b>or who is </b> 
-                            <b>( 
-                                <input type="text" id="autocomplete-input" name = "keyword2" class="autocomplete" style = "max-width: 40%; padding-left: 1%; font-size:20px;">
-                            ) </b>
-                            <button type="submit" class="waves-effect waves-light btn" style="margin-left:2%;">SEND</button>
-                            </h5>
-                        </span>
-                    </div>
-                    </form>
-                        		
-                        	</div>
-                        	<div class="modal-footer">
-                        		<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat"></a>
-                        	</div>
+                        	<form method="POST" class="post-form">{% csrf_token %}
+                                <div class = "headText input-field" style="text-align: center;">
+                                    <span>
+                                        <h5> <b>is good for who likes </b> 
+                                            <b>( <input type="text" id="autocomplete-input" name = "keyword1" class="autocomplete" style = "max-width: 40%; padding-left: 1%; font-size:20px;"> ) </b>
+                                        </h5>
+                                    </span>
+
+                                    <span>
+                                        <h5> <b>or who is </b> 
+                                            <b>( <input type="text" id="autocomplete-input" name = "keyword2" class="autocomplete" style = "max-width: 40%; padding-left: 1%; font-size:20px;"> ) </b>
+                                            <button type="submit" class="waves-effect waves-light btn" style="margin-left:2%;">SEND</button> 
+                                        </h5>
+                                    </span>
+                                </div>
+                            </form>
+                            </div>
+                            <div class="modal-footer">
+                            		<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat"></a>
+                            </div>
                         	
                         </div>
 
