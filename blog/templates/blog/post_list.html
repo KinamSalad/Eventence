@@ -20,13 +20,13 @@
                         </b> 
                       </h4>
                       <div>
-                          <a class="waves-effect waves-light btn modal-trigger"  href="#modal1" style="margin-top: 3%; margin-bottom:4%; background-color: #ec6f75;">
+                          <a class="waves-effect waves-light btn modal-trigger"  href="#modal1-{{post.pk}}" style="margin-top: 3%; margin-bottom:4%; background-color: #ec6f75;">
                             <b>YES!</b>
                           </a>
-                          <div id = "modal1" class="modal">
+                          <div id = "modal1-{{post.pk}}" class="modal">
                             <div class="modal-content">
                                 <p>
-                                    <img class="materialboxed" width="650" style = "margin:0 auto;" src= '{{ path }}'>
+                                    <img class="materialboxed" width="650" style = "margin:0 auto;" src= '../../static/wordcloud/wordcloud_{{post.title}}.png'>
                                 </p>
                                 
                             </div>
