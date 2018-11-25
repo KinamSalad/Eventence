@@ -13,7 +13,7 @@ from django.http import HttpResponse
 import json
 import random
 from random import randint
-
+# -*- encoding:utf8 -*-
 import os
 from collections import Counter
 import pytagcloud
