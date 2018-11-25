@@ -27,25 +27,6 @@
                     </div>
                     <br>
 
-                    <div style = "text-align: center;">
-                        <a class="waves-effect waves-light btn tooltipped modal-trigger btn-large" data-position="bottom" href="#modal1" data-delay="40" data-tooltip = " Check the result of WordCloud!" style = "margin-left:1%; background-color: #ec6f75;">
-                        <b> check the WORDS about event </b>
-                        </a>
-                        <div id = "modal1" class="modal">
-                            <div class="modal-content">
-                                <p>
-                                    <img class="materialboxed" width="650" style = "margin:0 auto;" src= '{{ path }}'>
-                                </p>
-                                
-                            </div>
-                            <div class="modal-footer">
-                                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat"></a>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <br>
-
                     <form method="POST" class="post-form">{% csrf_token %}
                     <div class = "headText input-field" style="text-align: center;">
                         <span>
@@ -66,6 +47,25 @@
                     </div>
                     </form>
                     <br>
+
+
+                    <div style = "text-align: center;">
+                        <a class="waves-effect waves-light btn tooltipped modal-trigger btn-large" data-position="bottom" href="#modal1" data-delay="40" data-tooltip = " Check the result of WordCloud!" style = "margin-left:1%; background-color: #ec6f75;">
+                        <b> check the RESULT</b>
+                        </a>
+                        <div id = "modal1" class="modal">
+                            <div class="modal-content">
+                                <p>
+                                    <img class="materialboxed" width="650" style = "margin:0 auto;" src= '{{ path }}'>
+                                </p>
+                                
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat"></a>
+                            </div>
+                            
+                        </div>
+                    </div>
 
 
                     <br>
