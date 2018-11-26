@@ -97,7 +97,7 @@ def post_detail(request, pk):
     taglist = pytagcloud.make_tags(tag2, maxsize=30)
     path = settings.BASE_DIR+"/blog/static/wordcloud/wordcloud_"+str(pk)+".png"  
     path_html = "../../static/wordcloud/wordcloud_"+str(pk)+".png"
-    pytagcloud.create_tag_image(taglist, path, size=(500, 500), rectangular=False)
+    pytagcloud.create_tag_image(taglist, path, fontname='malgun', size=(500, 500), rectangular=False)
 
     if request.method == "POST":
         form = KeywordForm(request.POST)
