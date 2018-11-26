@@ -95,8 +95,8 @@ def post_detail(request, pk):
     count = Counter(wordlist)
     tag2 = count.most_common(30)
     taglist = pytagcloud.make_tags(tag2, maxsize=30)
-    path = settings.BASE_DIR+"/blog/static/wordcloud/wordcloud_"+str(post)+".png"  
-    path_html = "../../static/wordcloud/wordcloud_"+str(post)+".png"
+    path = settings.BASE_DIR+"/blog/static/wordcloud/wordcloud_"+str(pk)+".png"  
+    path_html = "../../static/wordcloud/wordcloud_"+str(pk)+".png"
     pytagcloud.create_tag_image(taglist, path, size=(500, 500), rectangular=False)
 
     if request.method == "POST":
@@ -187,7 +187,7 @@ def post_remove(request, pk):
     GradeInfo.objects.filter(post = post).delete()
     MajorInfo.objects.filter(post= post).delete()
     Keyword.objects.filter(post= post).delete()
-    path = settings.BASE_DIR+"/blog/static/wordcloud/wordcloud_"+str(post)+".png"
+    path = settings.BASE_DIR+"/blog/static/wordcloud/wordcloud_"+str(pk)+".png"
     if os.path.exists(path):
         os.remove(path)
     post.delete()
@@ -298,6 +298,23 @@ def really_remove(request, pk):
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'blog/really_remove.html', {'post': post})
 
+def wordcloud_modal(request):
+    pk = request.POST.get('pk', None)
+    post = get_object_or_404(Post, pk=pk)
+    wordlist = []
+    key = Keyword.objects.filter(post=post)
+    for i in key:
+        wordlist.append(i.keyword1)
+        wordlist.append(i.keyword2)
+    count = Counter(wordlist)
+    tag2 = count.most_common(30)
+    taglist = pytagcloud.make_tags(tag2, maxsize=30)
+    path = settings.BASE_DIR+"/blog/static/wordcloud/wordcloud_"+str(pk)+".png"  
+    path_html = "../../static/wordcloud/wordcloud_"+str(pk)+".png"
+    pytagcloud.create_tag_image(taglist, path, size=(500, 500), rectangular=False)
+
+    context = { 'path': path_html }
+    return HttpResponse(json.dumps(context))
 
 
 

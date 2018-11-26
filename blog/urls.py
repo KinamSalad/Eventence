@@ -16,5 +16,6 @@ urlpatterns = [
     url(r'^post/(?P<pk>\d+)/result$', views.post_result, name='post_result'),
     url(r'^esc/$', views.esc, name='esc'),
     url(r'^esc_help/$', views.esc_help, name='esc_help'),
-    url(r'^post/(?P<pk>\d+)/really_remove$', views.really_remove, name='really_remove')
+    url(r'^post/(?P<pk>\d+)/really_remove$', views.really_remove, name='really_remove'),
+    url(r'^wordcloud_modal/$', views.wordcloud_modal, name='wordcloud_modal')
 ]
